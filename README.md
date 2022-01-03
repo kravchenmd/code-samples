@@ -8,6 +8,8 @@ Included Jupyter notebooks present only main results for demonstration purposes:
 * "HPGe_time_(CNN_API_Robust)" notebook shows the latest results at the moment;
 * "HPGe time (GridSearch)" shows results of choosing optimal parameters for CNN layers.
 
+Python scripts folder contains samples of my Python scripts.
+
 ## Description
 
 ### The MuX experiment
