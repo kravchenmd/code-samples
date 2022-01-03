@@ -1,5 +1,12 @@
 # ML-HPGe-timing
+
 Deep learning-based pulse shape analysis for improving the time resolution of the high purity Germanium detectors
+
+## Note
+
+Included Jupyter notebooks present only main results for demonstration purposes:
+* "HPGe_time_(CNN_API_Robust)" notebook shows the latest results at the moment;
+* "HPGe time (GridSearch)" shows results of choosing optimal parameters for CNN layers.
 
 ## Description
 
@@ -13,7 +20,7 @@ Conventional Extrapolated Leading-Edge timing (ELET) algorithms are used for imp
 * a need of a single set of parameters for predefined function for whole energy range;
 * manual optimization.
 
-Another possible way is using of deep learning-based approaches by building and training a neural network that can learn the relationship between signal shape and time of signal rising edge. It would allow to:
+Another possible way is using deep learning-based approaches by building and training a neural network that can learn the relationship between signal shape and time of signal rising edge. It would allow to:
 * automate the process;
 * More generalized approach: the built network can be used for different detectors with different electrical characteristics (gain, etc.)
 
