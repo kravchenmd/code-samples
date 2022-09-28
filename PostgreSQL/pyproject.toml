@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "py6webhw9"
+version = "0.1.0"
+description = ""
+authors = ["kravchenmd <kravchenmd@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+SQLAlchemy = "^1.4.41"
+psycopg2 = "^2.9.3"
+psutil = "^5.9.2"
+prompt-toolkit = "^3.0.31"
+Faker = "^14.2.0"
+alembic = "^1.8.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+bot = "console_bot.main:__main__"

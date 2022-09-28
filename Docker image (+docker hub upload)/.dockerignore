@@ -1,0 +1,7 @@
+.idea
+images/
+.gitignore
+*.lock
+*.toml
+*.yml
+*.md
