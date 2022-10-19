@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div>
+        <h2>Create account</h2>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+        <div>
+            <mark>
+                {{ message }}: {{messages[message][0]}}
+            </mark>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if error %}
+    <div>
+        <mark>
+            {{ error }}
+        </mark>
+    </div>
+    {% endif %}
+    <form method="POST">
+        <div>
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" maxlength="120" autocapitalize="none" autocomplete="username"
+                   autofocus=""
+                   required="" id="id_username">
+            <br>
+            <cite class="helptext">Required fild, digits and @/./+/-/_ only.</cite>
+        </div>
+        <br>
+        <div>
+            <label for="id_password1">Password:</label>
+            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            <br>
+            <cite class="helptext">
+                <ul>
+                    <li><cite>Your password can’t be too similar to your other personal information.</cite></li>
+                    <li><cite>Your password must contain at least 3 characters.</cite></li>
+                </ul>
+            </cite>
+        </div>
+        <div>
+            <label for="id_password2">Password confirmation:</label>
+            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+            <br>
+            <cite class="helptext">Enter the same password as before, for verification.</cite>
+        </div>
+        <br>
+        <div class="grid">
+            <button type="submit">Create</button>
+            <button type="reset" class="secondary">Clear</button>
+        </div>
+    </form>
+
+{% endblock %}

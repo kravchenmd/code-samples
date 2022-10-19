@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Personal assistant</title>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+<main class="container">
+    <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        {% if auth %}
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="/contacts">Contacts</a></li>
+            <li class="nav-item"><a class="nav-link" href="/notebook">Notes</a></li>
+
+        </ul>
+        <ul>
+            <li>Welcome <b>{{ username }}!</b></li>
+        </ul>
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="/signout">Sign out</a></li>
+        </ul>
+        {% else %}
+        <ul>
+            <li><b>Welcome to the personal assistant!</b></li>
+        </ul>
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="/signup">Sign up</a></li>
+            <li class="nav-item"><a class="nav-link" href="/signin">Sign in</a></li>
+        </ul>
+        {% endif %}
+    </nav>
+</main>
+</body>
+</html>

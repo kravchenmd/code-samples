@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<ul>
+    <li><b>Notebook</b></li>
+    <li><a href="/notebook" role="button"> Back </a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% if error %}
+<div>
+    <mark>
+        {{ error }}
+    </mark>
+</div>
+{% endif %}
+<form method="POST" action="/notebook/note">
+    <div style="padding: 10px">
+        <label>Note name:
+            <input type="text" name="name" autofocus="True"  required/>
+        </label>
+    </div>
+    <div style="padding: 10px">
+        <label>Note description:
+            <input type="text" name="description" required/>
+        </label>
+    </div>
+    <div style="padding: 10px">
+        <label>Select tags:
+            <select name="tags" multiple="multiple" required>
+                {% for tag in tags %}
+                <option value="{{ tag.name }}">{{ tag.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="grid">
+        <button type="submit">Submit</button>
+        <button type="reset" class="secondary">Reset</button>
+    </div>
+</form>
+{% endblock %}

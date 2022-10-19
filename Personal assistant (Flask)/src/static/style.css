@@ -1,0 +1,7 @@
+[data-theme="dark"],
+:root:not([data-theme="dark"]) {
+  --primary: #0288d1;
+  --primary-hover: #c2185b;
+  --primary-focus: rgba(216, 27, 96, 0.125);
+  --primary-inverse: #f8f2f2;
+}

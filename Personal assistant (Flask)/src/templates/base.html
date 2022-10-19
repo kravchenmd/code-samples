@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Personal assistant</title>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+<main class="container">
+    <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        {%  block nav %}
+        {% endblock %}
+        <ul>
+            <li><a href="/" role="button"> Main page </a></li>
+            {% if not not_auth %}
+            <li class="nav-item"><a class="nav-link" href="/signout">Sign out</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {%  block content %}
+    {% endblock %}
+</main>
+</body>
+</html>

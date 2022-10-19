@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<ul>
+    <li><b>Notebook</b></li>
+    <li><a href="/notebook/note" role="button"> Add note </a></li>
+    <li><a href="/notebook/tag" role="button"> Add tag </a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for note in notes%}
+        <ul>
+            <li>
+                {% if not note.done %}
+                <a href="{{ url_for('note_details', note_id=note.id)}}" role="button" class="outline">{{note.name}}</a>
+                <a href="{{ url_for('set_done', note_id=note.id)}}" role="button">Mark Done</a>
+                <a href="{{ url_for('delete_note', note_id=note.id)}}" role="button" class="contrast">Delete note</a>
+                {% else %}
+                <a href="" role="button" class="secondary"><s>{{note.name}}</s></a>
+                {% endif %}
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

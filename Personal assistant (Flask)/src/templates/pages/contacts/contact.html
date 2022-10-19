@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<ul>
+    <li><b>{{ title }}</b></li>
+    <li><a href="/contacts" role="button"> Back </a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% if error %}
+<div>
+    <mark>
+        {{ error }}
+    </mark>
+</div>
+{% endif %}
+
+<form method="POST" action="{% if contact %}{{ '/contacts/edit' }}{% else %}{{ '/contacts/contact' }}{% endif %}">
+    <div style="padding: 10px">
+        <label>Name:
+            <input type="text" name="name" autofocus="" maxlength="100"
+                   value="{% if contact %}{{ contact.name }}{% endif %}" required/>
+        </label>
+    </div>
+    <div style="padding: 10px">
+        <label>Birthdate:
+            <input type="date" name="birthdate"
+                   value="{% if contact %}{{ contact.birthday_str }}{% endif %}" required/>
+        </label>
+    </div>
+    <div style="padding: 10px">
+        <label>Phone numbers:
+            <textarea name="phones"
+                      placeholder="Input one or several phone numbers (divided by spaces or new line)"
+            >{% if contact %}{{ contact.phone_list }}{% endif %}</textarea>
+        </label>
+    </div>
+    <div style="padding: 10px">
+        <label>Emails:
+            <textarea name="emails" value="{% if contact %}{{contact.emails}}{% endif %}"
+                      placeholder="Input one or several emails (divided by spaces or new line).&#10;Example: example@domain.com"
+            >{% if contact %}{{ contact.email_list }}{% endif %}</textarea>
+        </label>
+    </div>
+    {% if contact %}
+    <div>
+        <input type="hidden" name="contact_id" value="{{contact.id}}">
+    </div>
+    {% endif %}
+    <div class="grid">
+        <button type="submit">Save</button>
+        {% if not contact %}
+        <button type="reset" class="secondary">Reset form</button>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

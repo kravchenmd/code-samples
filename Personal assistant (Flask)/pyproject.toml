@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "py6web-hw11"
+version = "0.1.0"
+description = ""
+authors = ["Michail Kravchenko <66253910+kravchenmd@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "py6web_hw11"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.2.2"
+Flask-Migrate = "^3.1.0"
+flask-sqlalchemy = "^3.0.0"
+python-dotenv = "^0.21.0"
+marshmallow = "^3.18.0"
+bcrypt = "^4.0.1"
+WTForms-Alchemy = "^0.18.0"
+Faker = "^15.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
