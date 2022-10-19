@@ -1,0 +1,53 @@
+{% extends "noteapp/base.html" %}
+
+{% block content %}
+
+    <div>
+        <h2>Sign Up</h2>
+    </div>
+
+    {% if error %}
+        <div>
+            <mark>
+                {{ error }}
+            </mark>
+        </div>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username"
+                   autofocus=""
+                   required="" id="id_username">
+            <br>
+            <cite class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</cite>
+        </div>
+        <br>
+        <div>
+            <label for="id_password1">Password:</label>
+            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            <br>
+            <cite class="helptext">
+                <ul>
+                    <li><cite>Your password can’t be too similar to your other personal information.</cite></li>
+                    <li><cite>Your password must contain at least 8 characters.</cite></li>
+                    <li><cite>Your password can’t be a commonly used password.</cite></li>
+                    <li><cite>Your password can’t be entirely numeric.</cite></li>
+                </ul>
+            </cite>
+        </div>
+        <div>
+            <label for="id_password2">Password confirmation:</label>
+            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+            <br>
+            <cite class="helptext">Enter the same password as before, for verification.</cite>
+        </div>
+        <br>
+        <div class="grid">
+            <button type="submit">Submit</button>
+            <button type="reset" class="secondary">Reset</button>
+        </div>
+    </form>
+
+{% endblock %}
