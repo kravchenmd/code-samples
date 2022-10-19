@@ -2,9 +2,14 @@
 
 ## List
 
-- [Personal assistant](https://github.com/kravchenmd/code-samples/tree/main/Personal%20assistant%20(Flask)): Personal
+- [Personal assistant (Flask)](https://github.com/kravchenmd/code-samples/tree/main/Personal%20assistant%20(Flask)): Personal
   web assistant on Flask with data stored using **SQLite** DB (created and managed using `flask_sqlalchemy`
   and `flask_migrate`)
+- [Image hosting (Flask)](https://github.com/kravchenmd/code-samples/tree/main/Image%20hosting%20(Flask)): Image hosting
+  web app on Flask with data stored using **SQLite** DB (created and managed using `flask_sqlalchemy`
+  and `flask_migrate`)
+- [Notebook (Django)](https://github.com/kravchenmd/code-samples/tree/main/Image%20hosting%20(Flask)): Simple web application for
+  holding notes of user on Django, data is stored using SQLite DB (created and managed using built-in Django functional)
 - [MongoDB](https://github.com/kravchenmd/code-samples/tree/main/MongoDB): simple console bot with data stored in **
   MongoDB** (managed using **mongoengine**)
 - [PostgreSQL](https://github.com/kravchenmd/code-samples/tree/main/PostgreSQL): the same console bot but data storage
