@@ -27,6 +27,7 @@ hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=10))
 User for testing (with filled data):
 - username: test
 - pswd: 123
+SECRET_KEY=#r9#t6z!amVRYv
 ```
 
 ## Examples of pages
