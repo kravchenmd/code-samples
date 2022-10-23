@@ -5,7 +5,6 @@ from sqlalchemy.exc import IntegrityError
 from . import app
 from flask import render_template, request, session, redirect, url_for, make_response, flash
 
-from src.repository import users, notes, contacts
 from src import repository
 from marshmallow import ValidationError
 from src.libs.validation_schemas import SignUpSchema, SignInSchema
