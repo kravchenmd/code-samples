@@ -2,6 +2,7 @@
 
 ## List
 
+- [Django REST (recipes app)](https://github.com/kravchenmd/code-samples/tree/main/Django_REST_recipes): **Django** web app for storing recipes of the user with a backend REST API, without custom front-end (only Django admin and API docs). Project was developed using Test Driven Development (**TDD**) approach, and deployed deployed using a single virtual private server (**VPS**) on **AWS (EC2)** inside a Docker container.
 - [Personal assistant (Flask)](https://github.com/kravchenmd/code-samples/tree/main/Personal%20assistant%20(Flask)): Personal
   web assistant on Flask with data stored using **SQLite** DB (created and managed using `flask_sqlalchemy`
   and `flask_migrate`)
