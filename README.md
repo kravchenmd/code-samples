@@ -12,7 +12,7 @@
   web app on Flask with data stored using **SQLite** DB (created and managed using `flask_sqlalchemy`
   and `flask_migrate`).
 
-- [FastAPI (notes app)](https://github.com/kravchenmd/code-samples/tree/main/FastAPI-Notes): **FastAPI** web app for user's notes of the user with a backend REST API, only with API docs interface.Authentication of a user is done using **JWT** (JSON Web Token) as **OAuth 2.0** Bearer Tokens.
+- [FastAPI (notes app)](https://github.com/kravchenmd/code-samples/tree/main/FastAPI-Notes): **FastAPI** web app for user's notes of the user with a backend REST API, only with API docs interface. Authentication of a user is done using **JWT** (JSON Web Token) as **OAuth 2.0** Bearer Tokens.
 
 - [Notebook (Django)](https://github.com/kravchenmd/code-samples/tree/main/Image%20hosting%20(Flask)): Simple web application for
   holding notes of user on Django, data is stored using SQLite DB (created and managed using built-in Django functional).
