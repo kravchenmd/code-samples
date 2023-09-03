@@ -1,14 +1,14 @@
 # ML-HPGe-timing
 
-Deep learning-based pulse shape analysis for improving the time resolution of the high purity Germanium detectors
+Deep learning-based pulse shape analysis for improving the time resolution of the high-purity Germanium detectors
+
 
 ## Note
 
-Included Jupyter notebooks present only main results for demonstration purposes:
+Included Jupyter notebooks present only the main results for demonstration purposes:
 * "HPGe_time_(CNN_API_Robust)" notebook shows the latest results at the moment;
 * "HPGe time (GridSearch)" shows results of choosing optimal parameters for CNN layers.
 
-Python scripts folder contains samples of my Python scripts.
 
 ## Description
 
@@ -18,8 +18,8 @@ When registering signals by a particle detector in many cases it's crucial to kn
 
 ### ELET algorithms vs deep learning-based approach
 
-Conventional Extrapolated Leading-Edge timing (ELET) algorithms are used for improving the time resolution of particle detectors. However, these algorithms have some significant cons:
-* a need of a single set of parameters for predefined function for whole energy range;
+Conventional Extrapolated Leading-Edge timing (ELET) algorithms are used to improve the time resolution of particle detectors. However, these algorithms have some significant cons:
+* a need for a single set of parameters for a predefined function for the whole energy range;
 * manual optimization.
 
 Another possible way is using deep learning-based approaches by building and training a neural network that can learn the relationship between signal shape and time of signal rising edge. It would allow to:
@@ -36,7 +36,7 @@ The registered signal is digitized and represented as a 1-dimensional vector wit
 
 <img src="images/Signal_samples.png" width=50%>
 
-At the first stage the CNN-based Autoencoder is used to compress the original signal and extract a 50-dimensional feature vector at the bottleneck:
+In the first stage, the CNN-based Autoencoder is used to compress the original signal and extract a 50-dimensional feature vector at the bottleneck:
 
 ![Autoencoder](images/Autoencoder.png)
 
@@ -49,7 +49,7 @@ For example, the structure of the NN for determining the signal rising edge time
 
 <img src="images/En_TimeDet_Structure.png" width=60%>
 
-The Encoder consing of 4 Conv1D convolutional layers (with 20 filters and kernel size equals 7), each followed by an AveragePooling1D layer. Then here comes a couple of Dence layers with 128, 64 neurons. The output neuron gives the predicted value of t0 predicted. The NN with such design has `20, 790 parameters` in total (including 5, 941 pre-trained Encoder parameters):
+The Encoder consists of 4 Conv1D convolutional layers (with 20 filters and kernel size equals 7), each followed by an AveragePooling1D layer. Then here comes a couple of Dence layers with 128, 64 neurons. The output neuron gives the predicted value of t0 predicted. The NN with such a design has `20, 790 parameters` in total (including 5, 941 pre-trained Encoder parameters):
 
 ![Architecture of the current NN](images/NN_Architecture.png)
 
@@ -59,9 +59,9 @@ Connecting the 300-dimensional input layer directly with only 128 and 64 interim
 
 ![Detailed NN Structure](images/Detailed_NNStructure.png)
 
-### Model highligts 
-* Dimensionality of the signal is reduced by pooling layers in the Encoder part in 2 steps: at first in 3 times and then in 2 times, in 6 times in total.
-* Number of filters and kernel size were optimized using the GridSearch and Tensorboard toolkit for visualization of the results. The values of 20 and 7, respectively, were found as optimal ones based on the performance of the Autoencoder.
+### Model highlights 
+* Dimensionality of the signal is reduced by pooling layers in the Encoder part in 2 steps: at first by 3 times and then by 2 times, by 6 times in total.
+* The number of filters and kernel size were optimized using the GridSearch and Tensorboard toolkit for visualization of the results. The values of 20 and 7, respectively, were found as optimal ones based on the performance of the Autoencoder.
 * RobustScaller was chosen for scaling the signals (input features) due to the presence of outliers in signals after splitting the dataset and fitting the scaler only on the part used for training the NN.
 
 ## Current results
