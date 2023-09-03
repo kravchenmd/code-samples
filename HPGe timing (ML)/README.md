@@ -42,7 +42,8 @@ In the first stage, the CNN-based Autoencoder is used to compress the original s
 ![Autoencoder](images/Autoencoder.png)
 
 The Decoder part of Autoencoder is replaced by a couple of regular ANN consisting of 2 Dence layers:
-(IMAGE:  En_TimeDet.png)
+![Encoder-TimeDet NN](images/En_TimeDet.png)
+
 At this stage Encoder is already pre-trained and fixed, only the part with dense layers is fitted to the data. The original values time of signal rising edge t0 is used as labels.
 
 The pre-trained Encoder + Dence layers architecture is picked instead of just ANN of several dense layers because using CNN in the Encoder part allows reducing the dimension of input data by 6 times. Secondly, CNNs use fewer parameters.
