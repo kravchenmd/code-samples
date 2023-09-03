@@ -28,7 +28,6 @@ Another possible way is using deep learning-based approaches by building and tra
 * Use it online, since the main computational load is shifted to the offline training phase.
 * Having a more generalized approach: the built network can be used for different detectors with different electrical characteristics (gain, etc.)
 
-the pre-trained CNN-based encoder (for compression of the original signal and extracting a feature vector) followed by a couple of dense layers (for determining the exact time of the signal rising edge). Pending task. Achievement of fairly good and promising interim results compared to conventional, non-ML based, algorithms: comparable and even slightly better time resolution, good metrics (relatively small MAE value, acceptable MSE value, r-squared value ~0.85-0.9), reproducible results for different datasets (with ~300-800k signal samples).
 
 ## NN for determining the time of the signal rising edge
 
@@ -75,4 +74,5 @@ The NN shows good and promising interim results compared to conventional ELET al
 
 \* *average time resolution is ~2.6 of ADC counts, which is equivalent to ~10 ns, considering the ADC sampling rate of 250 MHz* 
 
-According to the metrics, MSE and RMSE values are higher than MAE values, which might be caused by data quality (noises, errors in manual labeling of datasets that were used for training, etc.)
+
+According to the metrics, MSE and RMSE values are higher than MAE values, which might be caused by data quality (noises, errors in manual labeling of datasets that were used for training, etc.). In better cases, the r-squared value is ~0.85-0.9. Results are reproducible for different datasets (with ~300-800k signal samples).
