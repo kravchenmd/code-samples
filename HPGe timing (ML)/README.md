@@ -14,17 +14,19 @@ Included Jupyter notebooks present only the main results for demonstration purpo
 
 ### The MuX experiment
 
-When registering signals by a particle detector in many cases it's crucial to know the exact time of a particular event. For example, [the MuX experiment](https://www.psi.ch/en/ltp/mux) (PSI, Switzerland) performs muonic atom spectroscopy by detecting the X-rays emitted from a muonic atom from the muonic atoms (the hydrogen-like bound state of a negative muon with a nucleus). The X-rays are detected by high-purity germanium detectors, and knowing the exact time of an X-ray hit is crucial for the experiment aims.
+When registering signals by a particle detector in many cases it's crucial to know the exact time of a particular event. For example, [the MuX experiment](https://www.psi.ch/en/ltp/mux) (PSI, Switzerland) performs muonic atom spectroscopy by detecting the X-rays emitted from a muonic atom from the muonic atoms (the hydrogen-like bound state of a negative muon with a nucleus). The X-rays are detected by high-purity germanium detectors, and knowing the exact time of an X-ray hit is crucial for the aims of the experiment.
 
 ### ELET algorithms vs deep learning-based approach
 
 Conventional Extrapolated Leading-Edge timing (ELET) algorithms are used to improve the time resolution of particle detectors. However, these algorithms have some significant cons:
-* a need for a single set of parameters for a predefined function for the whole energy range;
-* manual optimization.
+* A need for a single set of parameters for a predefined function for the whole energy range;
+* Can involve complex computations, which could make it unsuitable for online use;
+* Manual optimization.
 
 Another possible way is using deep learning-based approaches by building and training a neural network that can learn the relationship between signal shape and time of signal rising edge. It would allow to:
-* automate the process;
-* More generalized approach: the built network can be used for different detectors with different electrical characteristics (gain, etc.)
+* Automate the process;
+* Use it online, since the main computational load is shifted to the offline training phase.
+* Having a more generalized approach: the built network can be used for different detectors with different electrical characteristics (gain, etc.)
 
 the pre-trained CNN-based encoder (for compression of the original signal and extracting a feature vector) followed by a couple of dense layers (for determining the exact time of the signal rising edge). Pending task. Achievement of fairly good and promising interim results compared to conventional, non-ML based, algorithms: comparable and even slightly better time resolution, good metrics (relatively small MAE value, acceptable MSE value, r-squared value ~0.85-0.9), reproducible results for different datasets (with ~300-800k signal samples).
 
@@ -42,7 +44,7 @@ In the first stage, the CNN-based Autoencoder is used to compress the original s
 
 The Decoder part of Autoencoder is replaced by a couple of regular ANN consisting of 2 Dence layers:
 (IMAGE:  En_TimeDet.png)
-At this stage Encoder is already pre-trained and fixed, only dense layers part is fitted to the data. The original values time of signal rising edge t0 is used as labels.
+At this stage Encoder is already pre-trained and fixed, only the part with dense layers is fitted to the data. The original values time of signal rising edge t0 is used as labels.
 
 The pre-trained Encoder + Dence layers architecture is picked instead of just ANN of several dense layers because using CNN in the Encoder part allows reducing the dimension of input data by 6 times. Secondly, CNNs use fewer parameters.
 For example, the structure of the NN for determining the signal rising edge time value is presented below:
